@@ -9,7 +9,7 @@ function Home() {
         <p>Please choose from an option below</p>
     </section>
   
-    <Link to='/new-item' className='btn btn-reverse btn-block'>
+    <Link to='/new-device' className='btn btn-reverse btn-block'>
    <FaQuestionCircle /> Create new Item
     </Link>
     <Link to='/items' className='btn  btn-block'>
