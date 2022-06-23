@@ -48,8 +48,9 @@ h3 {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid rgb(98, 125, 119);
   margin-bottom: 60px;
+  /* background-color: rgb(98, 125, 119); */
   /* box-shadow: 0 1px 0px   */
   
  
@@ -89,7 +90,10 @@ h3 {
 .heading p {
   color: #828282;
 }
+.logo-1 {
+color: rgb(87, 125, 117);
 
+}
 .boxes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -144,7 +148,7 @@ h3 {
   padding: 10px 20px;
   border: 1px solid #000;
   border-radius: 5px;
-  background: #000;
+  background: rgb(98, 125, 119);
   color: #fff;
   font-size: 16px;
   font-weight: 700;
@@ -162,7 +166,7 @@ h3 {
 
 .btn-reverse {
   background: #fff;
-  color: #000;
+  color: rgb(98, 125, 119);
 }
 
 .btn-block {

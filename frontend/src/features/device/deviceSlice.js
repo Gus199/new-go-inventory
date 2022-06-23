@@ -10,6 +10,88 @@ const initialState = {
     isLoading: false,
     message: ''
 }
+// Get user tickets
+export const getDevices = createAsyncThunk(
+  'devices/getAll',
+  async (_, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token
+      return await deviceService.getDevices(token)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+// Get All Devices 
+// export const getDevices = createAsyncThunk(
+//   'devices/getAll',
+//   async (_, thunkAPI) => {
+//     try {
+//       const token = thunkAPI.getState().auth.user.token
+//       return await deviceService.getDevices(token)
+//     } catch (error) {
+//       const message =
+//         (error.response &&
+//           error.response.data &&
+//           error.response.data.message) ||
+//         error.message ||
+//         error.toString()
+
+//       return thunkAPI.rejectWithValue(message)
+//     }
+//   }
+// )
+
+
+// Get user ticket
+export const getDevice = createAsyncThunk(
+  'devices/get',
+  async (deviceId, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token
+      return await deviceService.getDevice(deviceId, token)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
+// close  device
+export const closeDevice = createAsyncThunk(
+  'devices/close',
+  async (deviceId, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token
+      return await deviceService.closeDevice(deviceId, token)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
+
+
 // Create new ticket
 export const createDevice = createAsyncThunk(
     'devices/create',
@@ -51,6 +133,41 @@ export const deviceSlice = createSlice({
             state.message = action.payload
 
         })
+
+        .addCase(getDevices.pending, (state) => {
+          state.isLoading = true
+      })
+      .addCase(getDevices.fulfilled, (state, action) => {
+          state.isLoading = false
+          state.isSuccess = true
+          state.devices = action.payload
+      })
+      .addCase(getDevices.rejected, (state, action) => {
+          state.isLoading = false
+          state.isLoading = false
+          state.message = action.payload
+
+      })
+      .addCase(getDevice.pending, (state) => {
+        state.isLoading = true
+    })
+    .addCase(getDevice.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.device = action.payload
+    })
+    .addCase(getDevice.rejected, (state, action) => {
+        state.isLoading = false
+        state.isLoading = false
+        state.message = action.payload
+
+    })
+    .addCase(closeDevice.fulfilled, (state, action) => {
+      state.isLoading = false
+     state.devices.map((device) => device._id === action.payload._id ? (device.status = 'close'):  device)
+
+  })
+
 
     }
 })
