@@ -76,7 +76,7 @@ const onNoteSubmit = (e) => {
           <header className='ticket-header'>
         <BackButton url='/devices' />
         <h2>
-          Ticket ID: {device._id}
+          Device ID: {device._id}
           <span className={`status status-${device.status}`}>
             {device.status}
           </span>

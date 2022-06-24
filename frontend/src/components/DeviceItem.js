@@ -6,7 +6,7 @@ function DeviceItem({ device }) {
   const { user } = useSelector((state) => state.auth);
   return (
     <div className='ticket'>
-        <div>created by:{' '}{user.name}</div>
+        
       <div>{new Date(device.createdAt).toLocaleString('en-US')}</div>
       <div>{device.product}</div>
       
