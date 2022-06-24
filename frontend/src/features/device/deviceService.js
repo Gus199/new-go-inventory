@@ -29,7 +29,20 @@ const getDevices = async (token) => {
     return response.data
   }
 
-  // Get user Device
+  // Get all Devices
+// const getAllDevices = async (token) => {
+//     const config = {
+//       headers: {
+//         Authorization: `Bearer ${token}`,
+//       },
+//     }
+  
+//     const response = await axios.get(API_URL , config)
+  
+//     return response.data
+//   }
+
+  // Get  Device
 const getDevice = async (deviceId, token) => {
     const config = {
       headers: {
@@ -51,7 +64,7 @@ const closeDevice = async (deviceId, token) => {
       },
     }
   
-    const response = await axios.put(API_URL + deviceId,{status: 'close'}, config)
+    const response = await axios.put(API_URL + deviceId,{status: 'closed'}, config)
   
     return response.data
   }
@@ -63,6 +76,7 @@ const deviceService = {
     getDevices,
     getDevice,
     closeDevice,
+    // getAllDevices,
 }
 
 export default deviceService

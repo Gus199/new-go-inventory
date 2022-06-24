@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getDevices, reset } from '../features/device/deviceSlice'
 import Spinner from '../components/shared/Spinner'
 import BackButton from '../components/BackButton'
-import DeviceItem from '../components/Devicetem'
+import DeviceItem from '../components/DeviceItem'
 
 function Devices() {
   const { devices, isLoading, isSuccess } = useSelector(

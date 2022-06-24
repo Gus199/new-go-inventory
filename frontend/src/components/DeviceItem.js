@@ -9,6 +9,8 @@ function DeviceItem({ device }) {
         <div>created by:{' '}{user.name}</div>
       <div>{new Date(device.createdAt).toLocaleString('en-US')}</div>
       <div>{device.product}</div>
+      
+      
     
       <div className={`status status-${device.status}`}>{device.status}</div>
       <Link to={`/device/${device._id}`} className='btn btn-reverse btn-sm'>

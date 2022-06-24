@@ -17,10 +17,14 @@ const deviceSchema = mongoose.Schema({
     },
     status: {
         type: String,
-        require: true,
-        enum: ['new', 'open', 'close'],
+        required: true,
+        enum: ['new', 'open', 'closed'],
         default: 'new',
-    }
+      },
+    //   rating: {
+    //       type: String,
+    //       require: [true, 'Please enter a Rating'],
+    //   }
 }, 
 {
     timestamps: true

@@ -17,7 +17,7 @@ function Header() {
   return (
     <header className="header">
       <div className="logo">
-        <Link to="/" className="logo-1">Go Inventory</Link>
+        <Link to="/" className="logo-1" ><span style={{color:'black'}}>Go</span>Ivent</Link>
       </div>
 
       <ul>

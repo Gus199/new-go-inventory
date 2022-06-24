@@ -5,8 +5,10 @@ import {toast} from 'react-toastify'
 import {createDevice, reset} from '../features/device/deviceSlice'
 import Spinner from "../components/shared/Spinner";
 import BackButton from '../components/BackButton'
+// import RatingSelect from "../components/RatingSelect";
 
 function NewDevice() {
+  // const [rating, setRating] = useState(10)
   const { user } = useSelector((state) => state.auth);
   const {isLoading, isError, isSuccess, message} = useSelector((state) => state.devices)
   const [name] = useState(user.name);
@@ -41,8 +43,11 @@ return <Spinner />
 
   return (
     <>
+    
     <BackButton  url='/' />
          <section className='heading'>
+         <h2>Device Condition</h2>
+  
         <h1>Create New Ticket</h1>
         <p>Please fill out the form below</p>
       </section>
@@ -57,6 +62,8 @@ return <Spinner />
           <input type='text' className='form-control' value={email} disabled />
         </div>
         <form onSubmit={onSubmit}>
+        {/* <h2>How would you rate your service with us?</h2>
+        <RatingSelect select={setRating} selected={rating} /> */}
           <div className='form-group'>
             <label htmlFor='product'>Product</label>
             <select

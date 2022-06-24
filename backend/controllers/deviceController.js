@@ -118,7 +118,8 @@ const createDevices = asyncHandler(async (req, res) => {
        product,
        description,
        user: req.user.id,
-       status: 'new'
+       status: 'new',
+    //    rating,
    })
     res.status(201).json(device)
    })

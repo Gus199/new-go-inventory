@@ -30,12 +30,12 @@ export const getDevices = createAsyncThunk(
   }
 )
 // Get All Devices 
-// export const getDevices = createAsyncThunk(
+// export const getAllDevices = createAsyncThunk(
 //   'devices/getAll',
 //   async (_, thunkAPI) => {
 //     try {
-//       const token = thunkAPI.getState().auth.user.token
-//       return await deviceService.getDevices(token)
+//       const token = thunkAPI.getState()
+//       return await deviceService.getAllDevices(token).auth.user.token
 //     } catch (error) {
 //       const message =
 //         (error.response &&
@@ -164,7 +164,11 @@ export const deviceSlice = createSlice({
     })
     .addCase(closeDevice.fulfilled, (state, action) => {
       state.isLoading = false
-     state.devices.map((device) => device._id === action.payload._id ? (device.status = 'close'):  device)
+      state.devices.map((device) =>
+          device._id === action.payload._id
+            ? (device.status = 'closed')
+            : device
+        )
 
   })
 
