@@ -47,9 +47,10 @@ return <Spinner />
     <BackButton  url='/' />
          <section className='heading'>
          <h2>Device Condition</h2>
+         <p>Comming Soon</p>
   
-        <h1>Create New Ticket</h1>
-        <p>Please fill out the form below</p>
+        <h1>Create New Device</h1>
+        {/* <p>Please fill out the form below</p> */}
       </section>
 
       <section className='form'>

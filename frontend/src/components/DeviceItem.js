@@ -9,6 +9,7 @@ function DeviceItem({ device }) {
         
       <div>{new Date(device.createdAt).toLocaleString('en-US')}</div>
       <div>{device.product}</div>
+      <div>{user.name}</div>
       
       
     

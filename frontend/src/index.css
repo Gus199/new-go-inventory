@@ -37,7 +37,7 @@ h3 {
 
 .container {
   width: 100%;
-  max-width: 960px;
+  /* max-width: 960px; */
   margin: 0 auto;
   padding: 0 20px;
   text-align: center;
@@ -54,6 +54,14 @@ h3 {
   /* box-shadow: 0 1px 0px   */
   
  
+}
+.login {
+color:rgb(98, 125, 119);
+}
+.logo {
+  color: #f5ba09;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
 .header ul {
@@ -144,7 +152,12 @@ font-weight: bold;
   display: block;
   margin: 0 0 5px 3px;
 }
-
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
 .btn {
   padding: 10px 20px;
   border: 1px solid #000;
@@ -171,7 +184,7 @@ font-weight: bold;
 }
 
 .btn-block {
-  width: 100%;
+  width: 20%;
   margin-bottom: 20px;
 }
 

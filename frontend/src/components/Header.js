@@ -23,14 +23,14 @@ function Header() {
       <ul>
         {user ? (
           <li>
-            <button className='btn' onClick={onLogout}><FaSignOutAlt />Logout</button>
+            <button className='btn' onClick={onLogout}><FaSignOutAlt className="login"/>Logout</button>
           </li>
         ): ( <>
            <li>
-              <Link to='/login'><FaSignInAlt />Login</Link>
+              <Link to='/login'><FaSignInAlt className="login"/>Login</Link>
           </li>
           <li>
-              <Link to='/register'><FaUser />Register</Link>
+              <Link to='/register'><FaUser className="login"/>Register</Link>
           </li>
           </>
           )}

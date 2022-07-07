@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import PrivateRoute from "./components/PrivateRoute";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/*" element={<NotFound />} />
             <Route path="/register" element={<Register />} />
             <Route path="/new-device" element={<PrivateRoute />}>
               <Route path="/new-device" element={<NewDevice />} />
