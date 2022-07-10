@@ -4,6 +4,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {logout, reset} from '../features/auth/authSlice'
 
 
+
 function Header() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -17,8 +18,11 @@ function Header() {
   return (
     <header className="header">
       <div className="logo">
+   
         <Link to="/" className="logo-1" ><span style={{color:'black'}}>Go</span>Ivent</Link>
+     
       </div>
+      
 
       <ul>
         {user ? (

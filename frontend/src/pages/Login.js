@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
-import { FaSignInAlt } from 'react-icons/fa'
+// import { FaSignInAlt } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
 import {login} from '../features/auth/authSlice'
 import Spinner from '../components/shared/Spinner'
@@ -18,7 +19,14 @@ function Login() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  // handle password Eye
+  const [passwordEye, setPasswordEye] = useState(false);
 
+
+  const handelePasswordClick = () => {
+    setPasswordEye(!passwordEye);
+  };
+ 
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   )
@@ -58,9 +66,9 @@ function Login() {
   return (
     <>
       <section className="heading">
-        <h1>
-          <FaSignInAlt /> Login
-        </h1>
+        {/* <h1>
+          <FaSignInAlt /> 
+        </h1> */}
         <p>Please log in to get support</p>
       </section>
 
@@ -80,7 +88,7 @@ function Login() {
           </div>
           <div className="form-group">
             <input
-              type="password"
+              type={passwordEye === false ? "password" : "text"}
               className="form-control"
               id="password"
               name="password"
@@ -89,6 +97,14 @@ function Login() {
               placeholder="Enter password"
               required
             />
+             {/* <div className="text-10xl absolute top-12 right-5"> */}
+             <div className="aif">
+              {passwordEye === false ? (
+                <AiFillEyeInvisible onClick={handelePasswordClick} />
+              ) : (
+                <AiFillEye onClick={handelePasswordClick} />
+              )}
+            </div>
           </div>
           <div className="form-group">
             <button className="btn btn-block">Submit</button>

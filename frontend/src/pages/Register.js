@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaUser } from "react-icons/fa";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 import { register, reset } from "../features/auth/authSlice";
@@ -23,6 +23,19 @@ function Register() {
     (state) => state.auth
   );
 
+
+    // handle password Eye
+    const [passwordEye, setPasswordEye] = useState(false);
+    const [confirmPasswordEye, setConfirmPasswordEye] = useState(false);
+  
+    const handelePasswordClick = () => {
+      setPasswordEye(!passwordEye);
+    };
+    const handeleConfirmPasswordClick = () => {
+      setConfirmPasswordEye(!confirmPasswordEye);
+    };
+
+    
   useEffect(() =>{
    if(isError) {
      toast.error(message)
@@ -59,11 +72,14 @@ function Register() {
   }
   return (
     <>
+      <section className="form">
       <section className="heading">
-        <h1>
-          <FaUser /> Register 
-        </h1>
+        {/* <h1>
+          <FaSignInAlt /> 
+        </h1> */}
         <p>Please create an account</p>
+      </section>
+    
 
         <form onSubmit={onSubmit}>
           <div className="form-group">
@@ -92,7 +108,7 @@ function Register() {
           </div>
           <div className="form-group">
             <input
-              type="password"
+               type={passwordEye === false ? "password" : "text"}
               className="form-control"
               id="password"
               name="password"
@@ -101,10 +117,18 @@ function Register() {
               placeholder="Enter password"
               required
             />
+             {/* eye section */}
+             <div className="aif">
+              {passwordEye === false ? (
+                <AiFillEyeInvisible onClick={handelePasswordClick} />
+              ) : (
+                <AiFillEye onClick={handelePasswordClick} />
+              )}
+            </div>
           </div>
           <div className="form-group">
             <input
-              type="password"
+             type={confirmPasswordEye === false ? "password" : "text"}
               className="form-control"
               id="password2"
               name="password2"
@@ -113,6 +137,14 @@ function Register() {
               placeholder="Confirm password"
               required
             />
+             {/* eye section */}
+             <div className="aif">
+              {confirmPasswordEye === false ? (
+                <AiFillEyeInvisible onClick={handeleConfirmPasswordClick} />
+              ) : (
+                <AiFillEye onClick={handeleConfirmPasswordClick} />
+              )}
+            </div>
           </div>
           <div className="form-group">
             <button className="btn btn-block">Submit</button>

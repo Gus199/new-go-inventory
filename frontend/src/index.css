@@ -139,6 +139,7 @@ font-weight: bold;
 .form-group input,
 .form-group textarea,
 .form-group select {
+  position: relative;
   width: 100%;
   padding: 10px;
   border: 1px solid #e6e6e6;
@@ -146,7 +147,11 @@ font-weight: bold;
   margin-bottom: 10px;
   font-family: inherit;
 }
-
+.aif {
+  position:absolute;
+  margin: -45px 1180px ;
+  font-size:x-large;
+}
 .form-group label {
   text-align: left;
   display: block;
