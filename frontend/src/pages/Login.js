@@ -24,7 +24,10 @@ function Login() {
 
 
   const handelePasswordClick = () => {
+   
     setPasswordEye(!passwordEye);
+    
+   
   };
  
   const { user, isLoading, isError, isSuccess, message } = useSelector(
@@ -33,6 +36,7 @@ function Login() {
   
    // Redirect when logged in
    if (isSuccess || user) {
+    
     navigate('/')
   }
 
@@ -41,6 +45,13 @@ function Login() {
       toast.error(message)
     }
   }, [isError])
+
+  useEffect(() => {
+if(isSuccess) {
+  toast.success('success')
+
+}
+  }, [isSuccess])
    
   
   const onChange = (e) => {

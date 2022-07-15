@@ -42,6 +42,7 @@ function Register() {
    }
    // Redirect when login
    if(isSuccess || user) {
+     toast.success("Sucess")
     navigate('/')
    }
    dispatch(reset())
