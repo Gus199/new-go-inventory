@@ -36,6 +36,9 @@ function App() {
             <Route path="/all" element={<PrivateRoute />}>
               <Route path="/all" element={<AllDevices />} />
             </Route>
+            <Route path="/*" element={<PrivateRoute />}>
+              <Route path="/*" element={<NotFound />} />
+            </Route>
           </Routes>
         </div>
       </Router>
