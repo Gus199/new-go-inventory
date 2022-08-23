@@ -19,16 +19,21 @@ function Header() {
     <header className="header">
       <div className="logo">
    
-        <Link to="/" className="logo-1" ><span style={{color:'black'}}>Go</span>Ivent</Link>
+        <Link to="/" className="logo-1" ><span style={{color:'black'}}>Go</span>Invent</Link>
      
       </div>
       
 
       <ul>
-        {user ? (
+        {user ? (<>
+          <li>
+           Hi:{" "}{user.name}
+        </li>
           <li>
             <button className='btn' onClick={onLogout}><FaSignOutAlt className="login"/>Logout</button>
           </li>
+            
+        </>
         ): ( <>
            <li>
               <Link to='/login'><FaSignInAlt className="login"/>Login</Link>

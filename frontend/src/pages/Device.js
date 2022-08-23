@@ -71,6 +71,7 @@ const onNoteSubmit = (e) => {
     if(isError) {
         return<h3>Something when Wrong</h3>
     }
+   
   return (
     <div className='ticket-page'>
           <header className='ticket-header'>
@@ -86,7 +87,7 @@ const onNoteSubmit = (e) => {
           Date Submitted: {new Date(device.createdAt).toLocaleString('en-US')}
         </h3>
         <h3>Product: {device.product}</h3>
-        <h3>Product: {device.rating}</h3>
+        <h3>Product: {device.condition}</h3>
         <hr />
         <div className='ticket-desc'>
           <h3>Description of Issue</h3>

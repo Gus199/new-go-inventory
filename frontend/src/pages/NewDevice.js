@@ -13,7 +13,8 @@ function NewDevice() {
   const {isLoading, isError, isSuccess, message} = useSelector((state) => state.devices)
   const [name] = useState(user.name);
   const [email] = useState(user.email);
-  const [product, setProduct] = useState("iPhone");
+  const [product, setProduct] = useState("Like New");
+  const [condition, setCondition] = useState("iPhone");
   const [description, setDescription] = useState("");
 
   const dispatch = useDispatch()
@@ -47,13 +48,14 @@ return <Spinner />
     <BackButton  url='/' />
          <section className='heading'>
          <h2>Device Condition</h2>
-         <p>Comming Soon</p>
+         <p>Coming Soon</p>
   
         <h1>Create New Device</h1>
         {/* <p>Please fill out the form below</p> */}
       </section>
 
       <section className='form'>
+      
         <div className='form-group'>
           <label htmlFor='name'>Customer Name</label>
           <input type='text' className='form-control' value={name} disabled />
@@ -77,6 +79,21 @@ return <Spinner />
               <option value='Macbook Pro'>Macbook Pro</option>
               <option value='iMac'>iMac</option>
               <option value='iPad'>iPad</option>
+            </select>
+          </div>
+
+          <div className='form-group'>
+            <label htmlFor='product'>Condition</label>
+            <select
+              name='condition'
+              id='condition'
+              value={condition}
+              onChange={(e) => setCondition(e.target.value)}
+            >
+              <option value='Like New<'>Like New</option>
+              <option value='Good'>Good</option>
+              <option value='Fair'>Fair</option>
+              <option value='Poor'>Poor</option>
             </select>
           </div>
           <div className='form-group'>
